@@ -1,13 +1,328 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color: RGB(39,33,33);
+}
+
+h2{
+  margin-top: 35px;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.light-brown{
+  color: RGB(115,112,111);
+}
+
+header{
+  background-image: url('./assets/img/imgheader.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 80%;
+  width: 100%;
+  height: 400px;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search{
+  width: 100%;
+}
+
+
+.search > form{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search > form >  div {
+  width: 60%;
+}
+
+.search > form >  div > input{
+  border: 1px solid black;
+  border-right: none;
+  border-radius: 5px 0% 0% 5px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  background-color: RGB(68,55,55);
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.search > form > button{
+  background-color: RGB(39,33,33);
+  border: 1px solid black;
+  border-left: none;
+  border-radius: 0% 5px 5px 0%;
+  color: white;
+  width: 30%;
+  padding: 10px;
+  margin-top: 30px;
+  font-size: 1.1rem;
+}
+
+.search > form > button:hover{
+  color: RGB(144,201,75);
+  box-shadow: 0px 0px 3px RGB(144,201,75);
+}
+
+.search > form > button:active{
+  color: RGB(144,201,75);
+  box-shadow: 0px 0px 3px RGB(144,201,75) inset;
+}
+
+.search > form > div > input:focus{
+  outline: none;
+  box-shadow: 0px 0px 3px RGB(144,201,75);
+  color: RGB(144,201,75);
+}
+
+.search-list{
+  border-radius: 0px 0px 10px 10px;
+  margin-left: 5%;
+  width: 60%;
+  position: absolute;
+}
+
+.search-item{
+  background-color: rgba(68,55,55, 0.8);
+  color: white;
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-item:hover{
+  color: RGB(146,201,75);
+}
+
+.info{
+  width: 70%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cards-container{
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.info > div{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+}
+
+.card{
+  border: 1px solid RGB(146,203,76);
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: RGB(61,53,53);
+  width: 95%;
+  overflow: hidden;
+  transition: all 300ms;
+}
+
+.card:hover{
+  transform: scale(1.01);
+  box-shadow: 0px 0px 6px RGB(211,225,84);
+}
+
+.card > div{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 20px;
+  color: white;
+}
+
+.card > img{
+  width: 200px;
+  height: 200px;
+}
+
+.card:hover > div{
+  color: RGB(146,201,75);
+}
+
+.card > div > div{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.red{
+  background-color: #ff0000;
+}
+
+.green{
+  background-color: #adff2f;
+}
+
+.orange{
+  background-color: #ffa500;
+}
+
+.btn-group{
+  padding: 20px;
+}
+
+.next{
+  padding: 10px;
+  border: 1px solid RGB(33,29,29);
+  background-color: RGB(179,213,77);
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px RGB(41,144,68);
+}
+
+.next:hover{
+  box-shadow: 0px 0px 4px RGB(41,144,68), 0px 0px 5px RGB(143,200,74);
+}
+
+.next:active{
+  box-shadow: 0px 0px 5px RGB(41,144,68) inset;
+}
+
+
+
+/* EFECTO DE CARGA */
+#preloader_3{
+  position:absolute;
+  top: 480px;
+  left: 47%;
+}
+#preloader_3:before{
+width:20px;
+height:20px;
+border-radius:20px;
+background:blue;
+content:'';
+position:absolute;
+background:#9b59b6;
+animation: preloader_3_before 1.5s infinite ease-in-out;
+}
+
+#preloader_3:after{
+width:20px;
+height:20px;
+border-radius:20px;
+background:blue;
+content:'';
+position:absolute;
+background:#2ecc71;
+left:22px;
+animation: preloader_3_after 1.5s infinite ease-in-out;
+}
+
+@keyframes preloader_3_before {
+  0% {transform: translateX(0px) rotate(0deg)}
+  50% {transform: translateX(50px) scale(1.2) rotate(260deg); background:#2ecc71;border-radius:0px;}
+    100% {transform: translateX(0px) rotate(0deg)}
+}
+@keyframes preloader_3_after {
+  0% {transform: translateX(0px)}
+  50% {transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0px;}
+  100% {transform: translateX(0px)}
+}
+/*FIN EFECTO DE CARGA */
+
+/* SEGUNDO EFECTO DE CARGA */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid RGB(17,138,68);
+  border-bottom: 16px solid RGB(17,138,68);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* FIN DE SEGUNDO EFECTO DE CARGA */
+
+@media only screen and ( min-width: 1070px ){
+  .cards-container{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and ( min-width: 719px){
+  .search > form > input{
+    width: 60%;
+  }
+
+  .search > form > button{
+    width: 10%;
+  }
+
+  .search-list{
+    width: 60%;
+    margin-left: 15%;
+  }
+  
+}
+
+@media only screen and ( min-width: 524px){
+  .card{
+    display: flex;
+    flex-direction: row;
+  }
+  
+}
+
+@media (max-width: 523px) and (min-width: 305px){
+  .card > img{
+    width: 100%;
+  }
 }
